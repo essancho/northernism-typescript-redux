@@ -1,0 +1,51 @@
+@import "../../variables";
+.navbar__wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.938);
+    margin-bottom: 50px;
+    top: 0;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 3px solid black;
+    &__link {
+        font-size: 16px;
+    }
+    .navbar__menu {
+        display: flex;
+        align-items: center;
+        height: 50%;
+        cursor: pointer;
+    }
+    &__left {
+        width: 20%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__middle {
+        width: 60%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 7px;
+    }
+    &__right {
+        width: 20%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $highlight-color;
+    }
+}

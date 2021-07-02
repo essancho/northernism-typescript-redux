@@ -1,0 +1,30 @@
+@import "../../variables";
+.sidebar {
+    position: relative;
+}
+.sidebar__list {
+    position: fixed;
+    right: 160px;
+    top: 150px;
+    list-style-type: none;
+    border-left: 3px solid black;
+    padding-left: 30px;
+    height: 70vh;
+    .sidebar__item {
+        color: $highlight-color;
+        font-size: 16px !important;
+        margin-bottom: 30px !important;
+        font-weight: 400 !important;
+        letter-spacing: 1px !important;
+    }
+    .sidebar__sale {
+        color: $sale-color;
+    }
+    .sidebar__link {
+        margin: 0;
+        line-height: 1.8;
+        padding: 0;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}

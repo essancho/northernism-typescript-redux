@@ -1,0 +1,28 @@
+.admin__item {
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+    width: 100%;
+    flex: 1;
+    span {
+        height: 30px;
+    }
+    img {
+        padding-bottom: 10px;
+    }
+}
+.admin {
+    padding-top: 150px;
+}
+.admin__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.admin__page {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    max-width: 75%;
+    justify-content: space-between;
+}
