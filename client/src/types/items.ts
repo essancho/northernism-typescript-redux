@@ -13,11 +13,13 @@ export interface ItemsState {
 
 export interface OneItem {
     name: string;
-    price: number;
-    sale: number;
+    price: number | string;
+    sale: number | string;
     desc: string;
     author: string;
-    typeId: number | string;
+    typeId: number | string | null;
+    img: string;
+    second: string;
 }
 export interface OneItemState {
     oneItem: OneItem;

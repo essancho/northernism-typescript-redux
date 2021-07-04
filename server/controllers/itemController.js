@@ -2,6 +2,7 @@ const uuid = require("uuid");
 const path = require("path");
 const { Item } = require("../models/models");
 const ApiError = require("../error/ApiError");
+const { Sequelize } = require("../db");
 class ItemController {
     async create(req, res, next) {
         try {
@@ -73,31 +74,45 @@ class ItemController {
         }
     }
     async getAll(req, res) {
-        let { brandId, typeId, limit, page } = req.query;
+        let { brandId, typeId, limit, page, searchItem } = req.query;
         page = page || 1;
         limit = limit || 9;
         let offset = page * limit - limit;
         let items;
         if (!brandId && !typeId) {
-            items = await Item.findAndCountAll({ limit, offset });
+            items = await Item.findAndCountAll({
+                limit,
+                offset,
+                where: { name: { [Sequelize.Op.ilike]: `%${searchItem}%` } },
+            });
         }
         if (brandId && !typeId) {
             items = await Item.findAndCountAll({
-                where: { brandId },
+                where: {
+                    brandId,
+                    name: { [Sequelize.Op.ilike]: `%${searchItem}%` },
+                },
                 limit,
                 offset,
             });
         }
         if (!brandId && typeId) {
             items = await Item.findAndCountAll({
-                where: { typeId },
+                where: {
+                    typeId,
+                    name: { [Sequelize.Op.ilike]: `%${searchItem}%` },
+                },
                 limit,
                 offset,
             });
         }
         if (brandId && typeId) {
             items = await Item.findAndCountAll({
-                where: { typeId, brandId },
+                where: {
+                    typeId,
+                    brandId,
+                    name: { [Sequelize.Op.ilike]: `%${searchItem}%` },
+                },
                 limit,
                 offset,
             });

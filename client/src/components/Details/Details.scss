@@ -1,0 +1,57 @@
+@import "../../variables";
+.details__body {
+    padding-top: 80px;
+    .details__content {
+        width: 75%;
+        display: flex;
+        .content__left {
+            position: relative;
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            img {
+                width: 360px;
+                padding-right: 50px;
+            }
+            &__title {
+                font-size: 26px;
+                font-weight: 600;
+                width: 20%;
+                position: absolute;
+                top: 30%;
+                left: 0%;
+            }
+        }
+        .content__right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &__top {
+                height: 20%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            &__desc {
+                font-size: 18px;
+            }
+            &__author {
+                font-weight: 600;
+                font-size: 24px;
+            }
+            &__price {
+                color: $highlight-color;
+            }
+            button {
+                width: 30%;
+                background-color: black;
+                color: white;
+                border: none;
+
+                height: 50px;
+                font-size: 14px;
+            }
+        }
+    }
+}
