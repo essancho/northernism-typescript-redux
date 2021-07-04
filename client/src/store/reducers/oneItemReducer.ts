@@ -1,4 +1,9 @@
-import { ItemsAction, ItemsActionTypes, OneItemState } from "../../types/items";
+import {
+    ItemsAction,
+    ItemsActionTypes,
+    OneItemState,
+    OneItem,
+} from "../../types/items";
 
 const initialState: OneItemState = {
     oneItem: {},

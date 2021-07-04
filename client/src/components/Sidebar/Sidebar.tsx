@@ -29,7 +29,7 @@ const Sidebar = (props: Props) => {
         fetchTypes();
     }, []);
     useEffect(() => {
-        fetchItems(typeId, null, page, 1);
+        fetchItems(typeId, null, page, 20);
     }, [typeId, page]);
 
     return (

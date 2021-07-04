@@ -74,7 +74,7 @@ class ItemController {
         }
     }
     async getAll(req, res) {
-        let { brandId, typeId, limit, page, searchItem } = req.query;
+        let { brandId, typeId, limit, page, searchItem = "" } = req.query;
         page = page || 1;
         limit = limit || 9;
         let offset = page * limit - limit;
@@ -83,14 +83,14 @@ class ItemController {
             items = await Item.findAndCountAll({
                 limit,
                 offset,
-                where: { name: { [Sequelize.Op.ilike]: `%${searchItem}%` } },
+                where: { name: { [Sequelize.Op.iLike]: `%${searchItem}%` } },
             });
         }
         if (brandId && !typeId) {
             items = await Item.findAndCountAll({
                 where: {
                     brandId,
-                    name: { [Sequelize.Op.ilike]: `%${searchItem}%` },
+                    name: { [Sequelize.Op.iLike]: `%${searchItem}%` },
                 },
                 limit,
                 offset,
@@ -100,7 +100,7 @@ class ItemController {
             items = await Item.findAndCountAll({
                 where: {
                     typeId,
-                    name: { [Sequelize.Op.ilike]: `%${searchItem}%` },
+                    name: { [Sequelize.Op.iLike]: `%${searchItem}%` },
                 },
                 limit,
                 offset,
@@ -111,7 +111,7 @@ class ItemController {
                 where: {
                     typeId,
                     brandId,
-                    name: { [Sequelize.Op.ilike]: `%${searchItem}%` },
+                    name: { [Sequelize.Op.iLike]: `%${searchItem}%` },
                 },
                 limit,
                 offset,

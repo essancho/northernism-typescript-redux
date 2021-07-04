@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import "./AddItems.scss";
+import { useHistory } from "react-router-dom";
 
 interface Props {}
 
@@ -32,6 +33,7 @@ const AddItems = (props: Props) => {
     const { response: createResponse, error: createError } = useTypedSelector(
         (state) => state.create
     );
+    const history = useHistory();
     console.log(types);
     const [file, setFile] = useState("");
     const [fileTwo, setFileTwo] = useState("");
@@ -42,7 +44,7 @@ const AddItems = (props: Props) => {
     const [author, setAuthor] = useState("");
     const [category, setCategory] = useState("");
 
-    function handleClick() {
+    async function handleClick() {
         const formData = new FormData();
         formData.append("name", name);
         formData.append("desc", desc);
@@ -53,7 +55,8 @@ const AddItems = (props: Props) => {
         formData.append("second", fileTwo);
         formData.append("typeId", category);
         formData.append("brandId", "1");
-        uploadItem(formData);
+        await uploadItem(formData);
+        history.push("/admin");
     }
     function handleFileOne(e: React.SyntheticEvent | any) {
         setFile(e.target.files[0]);

@@ -12,10 +12,10 @@ const Admin = (props: Props) => {
     const { items } = useTypedSelector((state) => state.items);
     const deleteAdmin = async (id: number | string | any) => {
         await deleteItem(id);
-        fetchItems();
+        fetchItems(null, null, 1, 30);
     };
     useEffect(() => {
-        fetchItems();
+        fetchItems(null, null, 1, 30);
     }, []);
     return (
         <div className="container">

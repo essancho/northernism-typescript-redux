@@ -21,7 +21,7 @@ const Routes = (props: Props) => {
     return (
         <div>
             <BrowserRouter>
-                {/* <Navbar /> */}
+                <Navbar />
                 <Sidebar />
                 <Switch>
                     <Route exact path="/" component={ItemsList} />
