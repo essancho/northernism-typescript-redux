@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./ItemsCard.scss";
 interface Props {
     item: {
@@ -14,9 +14,13 @@ interface Props {
 }
 
 const ItemsCard = ({ item }: Props) => {
+    const history = useHistory();
     const [playing, setPlaying] = useState(false);
     return (
-        <div className="card">
+        <div
+            onClick={() => history.push(`/details/${item.id}`)}
+            className="card"
+        >
             {!playing ? (
                 <div
                     onMouseEnter={() => setPlaying(true)}

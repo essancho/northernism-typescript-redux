@@ -43,9 +43,10 @@ const Rating = sequelize.define("rating", {
     rate: { type: DataTypes.INTEGER, allowNull: false },
 });
 
-const Comments = sequelize.define("comment", {
+const Comments = sequelize.define("comments", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     body: { type: DataTypes.TEXT, allowNull: false },
+    email: { type: DataTypes.TEXT, allowNull: false },
 });
 
 // const ItemInfo = sequelize.define("item_info", {

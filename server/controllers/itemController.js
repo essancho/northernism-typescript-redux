@@ -1,6 +1,6 @@
 const uuid = require("uuid");
 const path = require("path");
-const { Item } = require("../models/models");
+const { Item, Comments } = require("../models/models");
 const ApiError = require("../error/ApiError");
 const { Sequelize } = require("../db");
 class ItemController {
@@ -123,6 +123,7 @@ class ItemController {
         const { id } = req.params;
         const item = await Item.findOne({
             where: { id },
+            include: [{ model: Comments, as: "comments" }],
         });
         return res.json(item);
     }
